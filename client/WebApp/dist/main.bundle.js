@@ -103,7 +103,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'app';
     }
     AppComponent = __decorate([
         core_1.Component({
@@ -246,7 +245,6 @@ var DashboardComponent = /** @class */ (function () {
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._userService.ensureUserIsLoggedIn(function (res) {
-            console.log(res);
             if (!res.success) {
                 _this._router.navigateByUrl('/');
             }
@@ -254,6 +252,8 @@ var DashboardComponent = /** @class */ (function () {
     };
     DashboardComponent.prototype.logout = function () {
         var _this = this;
+        // this will attempt to navigate to login reg regardless
+        // of response. Login reg component can handle this
         this._userService.logoutUser(function (response) {
             _this._router.navigate(['']);
         });
@@ -406,9 +406,9 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        console.log('in login');
         this._userService.loginUser(this.user, function (res) {
-            console.log(res);
+            // if the login was successful continue to the dashboard
+            // else display the response the backend gave
             if (res.success) {
                 _this._router.navigate(['dashboard']);
             }
@@ -490,7 +490,8 @@ var RegistrationComponent = /** @class */ (function () {
     RegistrationComponent.prototype.registerUser = function () {
         var _this = this;
         this._userService.registerUser(this.user, function (res) {
-            console.log(res);
+            // if registration went successfully continue to dashboard
+            // else display the message the server gave
             if (res.success) {
                 _this._router.navigateByUrl('/dashboard');
             }

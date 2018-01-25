@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this._userService.ensureUserIsLoggedIn((res) => {
-      console.log(res);
       if (!res.success) {
         this._router.navigateByUrl('/');
       }
@@ -28,6 +27,9 @@ export class DashboardComponent implements OnInit {
   }
 
   logout() {
+
+    // this will attempt to navigate to login reg regardless
+    // of response. Login reg component can handle this
     this._userService.logoutUser((response) => {
       this._router.navigate(['']);
     });

@@ -6,7 +6,8 @@ import { UserService } from './../../../services/user.service';
 import { Router } from '@angular/router';
 
 // JSON CLASSES & INTERFACES
-import { IUser, User } from '../../../classes/user';
+import { User } from '../../../classes/user';
+import { IUser } from '../../../interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -26,9 +27,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('in login');
     this._userService.loginUser(this.user, (res) => {
-      console.log(res);
+
+      // if the login was successful continue to the dashboard
+      // else display the response the backend gave
       if (res.success) {
         this._router.navigate(['dashboard']);
       } else {

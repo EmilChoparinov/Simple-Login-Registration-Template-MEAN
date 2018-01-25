@@ -92,10 +92,10 @@ export const LoginRegController = {
                     req.session._id = data._id;
                     res.json(new ServerMessage(true, data));
                 } else {
-                    res.json(new ServerMessage(false, data));
+                    res.json(new ServerMessage(false, {message: 'the information provided is invalid'}));
                 }
             } else {
-                res.json(new ServerMessage(false, data));
+                res.json(new ServerMessage(false, {message: 'the information provided is invalid'}));
             }
         });
     },

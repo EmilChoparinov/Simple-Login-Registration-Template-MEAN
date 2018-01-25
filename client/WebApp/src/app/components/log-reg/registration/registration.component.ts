@@ -29,7 +29,9 @@ export class RegistrationComponent implements OnInit {
 
   registerUser() {
     this._userService.registerUser(this.user, (res) => {
-      console.log(res);
+
+      // if registration went successfully continue to dashboard
+      // else display the message the server gave
       if (res.success) {
         this._router.navigateByUrl('/dashboard');
       } else if (res.output.message) {
