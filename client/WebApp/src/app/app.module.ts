@@ -13,7 +13,7 @@ import { LogRegComponent } from './components/log-reg/log-reg.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 // PROVIDERS
-import { UserService } from './services/user.service';
+import { UserService } from './services/user/user.service';
 
 @NgModule({
   declarations: [

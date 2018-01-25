@@ -6,7 +6,7 @@ import { IServerMessage } from '../../interfaces/server-message';
 
 // PROVIDERS
 import { Router } from '@angular/router';
-import { UserService } from './../../services/user.service';
+import { UserService } from './../../services/user/user.service';
 
 
 @Component({

@@ -143,7 +143,7 @@ var registration_component_1 = __webpack_require__("../../../../../src/app/compo
 var log_reg_component_1 = __webpack_require__("../../../../../src/app/components/log-reg/log-reg.component.ts");
 var dashboard_component_1 = __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.ts");
 // PROVIDERS
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user/user.service.ts");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -236,7 +236,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 // PROVIDERS
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user/user.service.ts");
 var DashboardComponent = /** @class */ (function () {
     function DashboardComponent(_router, _userService) {
         this._router = _router;
@@ -316,7 +316,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // DEPENDENCIES
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 // PROVIDERS
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user/user.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var LogRegComponent = /** @class */ (function () {
     function LogRegComponent(_userService, _router) {
@@ -391,7 +391,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // DEPENDENCIES
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 // PROVIDERS
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user/user.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 // JSON CLASSES & INTERFACES
 var user_1 = __webpack_require__("../../../../../src/app/classes/user.ts");
@@ -453,7 +453,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/log-reg/registration/registration.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col fixed\">\n    <h1 class=\"display-3\">Register</h1>\n    <form class=\"form-group ml-2 mt-2\">\n        <label for=\"firstName\">First Name</label>\n        <input \n          class=\"form-control\"\n          type=\"text\" \n          name=\"firstName\" \n          required\n          minlength=\"3\"\n          maxlength=\"255\"\n          [(ngModel)]='user.firstName'\n          #firstName='ngModel'>\n        <div \n          class=\"text-danger\" \n          *ngIf='firstName.errors && firstName.touched && firstName.dirty'>\n            *\n            <span *ngIf='firstName.errors.required'>First name is required</span>\n            <span *ngIf='firstName.errors.minlength'>First name must be longer than 3 characters</span>\n        </div>\n        <label for=\"lastName\">Last Name</label>\n        <input \n        class=\"form-control\"\n        type=\"text\" \n        name=\"lastName\" \n        required\n        minlength=\"3\"\n        maxlength=\"255\"\n        [(ngModel)]='user.lastName'\n        #lastName='ngModel'>\n        <label for=\"email\">Email</label>\n        <div \n          class=\"text-danger\" \n          *ngIf='lastName.errors && lastName.touched && lastName.dirty'>\n            *\n            <span *ngIf='lastName.errors.required'>Last name is required</span>\n            <span *ngIf='lastName.errors.minlength'>Last name must be longer than 3 characters</span>\n          </div>\n          <input \n          class=\"form-control\"\n          type=\"text\" \n          name=\"email\" \n        required\n        pattern=\"[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z]+$\"\n        maxlength=\"255\"\n        [(ngModel)]='user.email'\n        #email='ngModel'>\n        <div \n        class=\"text-danger\" \n          *ngIf='email.errors && email.touched && email.dirty'>\n            *\n            <span *ngIf='email.errors.required'>Email is required</span>\n            <span *ngIf='email.errors.pattern'>Email entered is invalid</span>\n        </div>\n        <div class=\"text-danger\">\n          <span *ngIf='serverMessage != \"\"'>*{{serverMessage}}</span>\n        </div>\n        <label for=\"password\">Password</label>\n        <input \n        class=\"form-control\"\n        type=\"text\" \n        name=\"password\" \n        required\n        pattern=\"^[A-Za-z\\d$@$!%*?&]{4,}$\"\n        maxlength=\"255\"\n        [(ngModel)]='user.password'\n        #password='ngModel'>\n        <div \n          class=\"text-danger\" \n          *ngIf='password.errors && password.touched && password.dirty'>\n            *\n            <span *ngIf='password.errors.required'>Password is required</span>\n            <span *ngIf='password.errors.pattern'>Password entered is invalid</span>\n        </div>\n        <label for=\"confirmPassword\">Confirm Password</label>\n        <input \n        class=\"form-control\"\n        type=\"text\" \n        name=\"confirmPassword\"\n        required \n        pattern=\"{{user.password}}\"\n        [(ngModel)]='user.confirmPassword'\n        #confirmPassword='ngModel'>\n        <div \n          class=\"text-danger\" \n          *ngIf='confirmPassword.errors && confirmPassword.touched && confirmPassword.dirty'>\n            *\n            <span *ngIf='confirmPassword.errors.pattern'>Passwords do not match</span>\n        </div>\n      </form>\n      \n      <button \n        (click)='registerUser()' \n        class=\"btn btn-success float-right\"\n        *ngIf='!(firstName.errors || lastName.errors || email.errors || password.errors || confirmPassword.errors)'>Register</button>\n</div>\n<!-- {{user | json}} -->"
+module.exports = "<div class=\"col fixed\">\n    <h1 class=\"display-3\">Register</h1>\n    <form class=\"form-group ml-2 mt-2\">\n        <label for=\"firstName\">First Name</label>\n        <input \n          class=\"form-control\"\n          type=\"text\" \n          name=\"firstName\" \n          required\n          minlength=\"3\"\n          maxlength=\"255\"\n          [(ngModel)]='user.firstName'\n          #firstName='ngModel'>\n        <div \n          class=\"text-danger\" \n          *ngIf='firstName.errors && firstName.touched && firstName.dirty'>\n            *\n            <span *ngIf='firstName.errors.required'>First name is required</span>\n            <span *ngIf='firstName.errors.minlength'>First name must be longer than 3 characters</span>\n        </div>\n        <label for=\"lastName\">Last Name</label>\n        <input \n        class=\"form-control\"\n        type=\"text\" \n        name=\"lastName\" \n        required\n        minlength=\"3\"\n        maxlength=\"255\"\n        [(ngModel)]='user.lastName'\n        #lastName='ngModel'>\n        <div \n        class=\"text-danger\" \n        *ngIf='lastName.errors && lastName.touched && lastName.dirty'>\n        *\n        <span *ngIf='lastName.errors.required'>Last name is required</span>\n        <span *ngIf='lastName.errors.minlength'>Last name must be longer than 3 characters</span>\n      </div>\n      <label for=\"email\">Email</label>\n      <input \n          class=\"form-control\"\n          type=\"text\" \n          name=\"email\" \n          required\n          pattern=\"[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z]+$\"\n          maxlength=\"255\"\n          [(ngModel)]='user.email'\n          #email='ngModel'>\n        <div \n        class=\"text-danger\" \n          *ngIf='email.errors && email.touched && email.dirty'>\n            *\n            <span *ngIf='email.errors.required'>Email is required</span>\n            <span *ngIf='email.errors.pattern'>Email entered is invalid</span>\n        </div>\n        <div class=\"text-danger\">\n          <span *ngIf='serverMessage != \"\"'>*{{serverMessage}}</span>\n        </div>\n        <label for=\"password\">Password</label>\n        <input \n        class=\"form-control\"\n        type=\"text\" \n        name=\"password\" \n        required\n        pattern=\"^[A-Za-z\\d$@$!%*?&]{4,}$\"\n        maxlength=\"255\"\n        [(ngModel)]='user.password'\n        #password='ngModel'>\n        <div \n          class=\"text-danger\" \n          *ngIf='password.errors && password.touched && password.dirty'>\n            *\n            <span *ngIf='password.errors.required'>Password is required</span>\n            <span *ngIf='password.errors.pattern'>Password entered is invalid</span>\n        </div>\n        <label for=\"confirmPassword\">Confirm Password</label>\n        <input \n        class=\"form-control\"\n        type=\"text\" \n        name=\"confirmPassword\"\n        required \n        pattern=\"{{user.password}}\"\n        [(ngModel)]='user.confirmPassword'\n        #confirmPassword='ngModel'>\n        <div \n          class=\"text-danger\" \n          *ngIf='confirmPassword.errors && confirmPassword.touched && confirmPassword.dirty'>\n            *\n            <span *ngIf='confirmPassword.errors.pattern'>Passwords do not match</span>\n        </div>\n      </form>\n      \n      <button \n        (click)='registerUser()' \n        class=\"btn btn-success float-right\"\n        *ngIf='!(firstName.errors || lastName.errors || email.errors || password.errors || confirmPassword.errors)'>Register</button>\n</div>\n<!-- {{user | json}} -->"
 
 /***/ }),
 
@@ -476,7 +476,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var user_1 = __webpack_require__("../../../../../src/app/classes/user.ts");
 // PROVIDERS
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user/user.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var RegistrationComponent = /** @class */ (function () {
     function RegistrationComponent(_userService, _router) {
@@ -515,7 +515,7 @@ exports.RegistrationComponent = RegistrationComponent;
 
 /***/ }),
 
-/***/ "../../../../../src/app/services/user.service.ts":
+/***/ "../../../../../src/app/services/user/user.service.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 // JSON CLASSES & INTERFACES
-import { ServerMessage } from './../classes/server-message';
-import { IServerMessage } from './../interfaces/server-message';
-import { IUser } from './../interfaces/user';
-import { User } from '../classes/user';
+import { ServerMessage } from './../../classes/server-message';
+import { IServerMessage } from './../../interfaces/server-message';
+import { IUser } from './../../interfaces/user';
+import { User } from '../../classes/user';
 
 // SERVICE DEPENDENCIES
 import * as uriBuilder from 'build-url';

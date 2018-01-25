@@ -8,7 +8,7 @@ import { User } from './../../../classes/user';
 import { IUser } from './../../../interfaces/user';
 
 // PROVIDERS
-import { UserService } from './../../../services/user.service';
+import { UserService } from './../../../services/user/user.service';
 import { Router } from '@angular/router';
 
 @Component({
