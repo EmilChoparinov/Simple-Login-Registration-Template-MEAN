@@ -1,3 +1,5 @@
+
+// DEPENDENCIES
 import * as mongoose from 'mongoose';
 import { IUserModel } from '../json-formats/mongo-interfaces/user-model.mongo';
 
